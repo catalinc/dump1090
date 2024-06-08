@@ -52,6 +52,7 @@
         var maxalt = 40000; /* Max altitude in the average case */
         var invalt = maxalt-plane.altitude;
         var selected = (Selected == plane.hex);
+        var scale = 2.5;
 
         if (invalt < 0) invalt = 0;
         b = parseInt(255/maxalt*invalt);
@@ -71,7 +72,7 @@
         } else {
             selhtml = '';
         }
-        he = '<div style="transform: rotate(-'+rotation+'deg); '+selhtml+'">✈️</div>';
+        he = '<div style="transform: rotate(-'+rotation+'deg) scale('+scale+');'+selhtml+'">✈️</div>';
         var icon = L.divIcon({html: he, className: 'plane-icon'});
         return icon;
     }
