@@ -142,7 +142,8 @@
                         refreshSelectedInfo();
                 } else {
                     var icon = getIconForPlane(plane);
-                    var marker = L.marker([plane.lat, plane.lon], {icon: icon}).addTo(Map);
+                    var marker = L.marker([plane.lat, plane.lon], {icon: icon});
+                    marker.addTo(Map);
                     var hex = plane.hex;
                     marker.on('click',selectPlaneCallback(plane.hex));
                     plane.marker = marker;
@@ -182,7 +183,7 @@
         window.setInterval(function() {
             fetchData();
             refreshGeneralInfo();
-        }, 100);
+        }, 500);
 
         autoCenterMap();
     }
